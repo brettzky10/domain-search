@@ -13,6 +13,7 @@ import {
 import Link from 'next/link'
 import LandingCourses from './(landing)/landing/_components/landing-courses'
 import LandingTestimonials from './(landing)/landing/_components/landing-testimonials'
+import { LandingCarousel } from './(landing)/_components/landing-carousel'
 
 const perks = [
   {
@@ -81,13 +82,23 @@ export default function Home() {
 
         <LandingCourses/>
 
-
-        <ProductReel
-          query={{ sort: 'desc', limit: 4 }}
-          href='/products?sort=recent'
-          title='Brand new'
-        />
+      
+        
       </MaxWidthWrapper>
+
+      <section className='flex-col flex items-center mx-auto max-w-xl'>
+        <LandingCarousel/>
+      </section>
+
+      <section>
+        <div className='w-full mx-10'>
+            <ProductReel
+              query={{ sort: 'desc', limit: 4 }}
+              href='/products?sort=recent'
+              title='Brand new'
+            />
+          </div>
+      </section>
 
       <section className='border-t border-gray-200 bg-gray-50'>
         <MaxWidthWrapper className='py-20'>
@@ -118,6 +129,7 @@ export default function Home() {
       <section>
         <LandingTestimonials/>
       </section>
+
     </>
   )
 }
